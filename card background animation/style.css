@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
+:root {
+  --body-bg-color: #03030e;
+  --card-bg-color: #20204b;
+  --white: #ffffff;
+  --black: #121212;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  background: var(--body-bg-color);
+}
+
+h1,
+p {
+  margin-top: 0;
+}
+
+.card-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  padding: 32px 24px;
+  background: var(--card-bg-color);
+  border-radius: 15px;
+  max-width: 300px;
+  color: #ffffff;
+}
+
+.card:nth-child(1) {
+  --circle-color: #6565fd;
+}
+
+.card:nth-child(2) {
+  --circle-color: #e22626;
+}
+
+.card:nth-child(3) {
+  --circle-color: #00a256;
+}
+
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.card h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.card p {
+  margin-bottom: 24px;
+}
+
+.card a {
+  display: inline-block;
+  padding: 10px 32px;
+  background-color: var(--white);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.card::after {
+  content: '';
+  background: var(--circle-color);
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  clip-path: circle(10% at 0% 0%);
+  transition: all 0.3s ease-in;
+}
+
+.card:hover::after {
+  clip-path: circle(100%);
+}
